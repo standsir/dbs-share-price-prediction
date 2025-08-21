@@ -50,18 +50,26 @@
     </style>
 </head>
 <body>
-    <form action="/" method="post">
-        <p>I am Steffi's DBSgpt-bot, please the Enter US to Singapore Dollar Exchange Rate:</p>
-        <p><input type="number" step="0.01" name="rates" placeholder="Enter rate here (e.g. 1.25)"></p>
-        <p><input type="submit" value="Submit"></p>
-    </form>
-{% if result %}
-    <div style="border: 1px solid #ce9dd9; padding: 20px; border-radius: 10px; width: 400px; margin: 20px auto; text-align: center; background-color: #f9fff9;">
-        <p style="font-weight: bold; font-size: 18px; color: #333;">
-            The predicted DBS share price is {{result}}
-        </p>
+    <!-- wrapper to keep form + result stacked -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+
+        <!-- Form -->
+        <form action="/" method="post" style="margin-bottom: 20px;">
+            <p>I am Steffi's DBSgpt-bot, please Enter US to Singapore Dollar Exchange Rate:</p>
+            <p><input type="number" step="0.01" name="rates" placeholder="Enter rate here (e.g. 1.25)"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+
+        <!-- Result box -->
+        {% if result %}
+        <div style="border: 1px solid #ce9dd9; padding: 20px; border-radius: 10px; width: 400px; text-align: center; background-color: #f9fff9;">
+            <p style="font-weight: bold; font-size: 18px; color: #333;">
+                The predicted DBS share price is {{result}}
+            </p>
+        </div>
+        {% endif %}
+
     </div>
-    {% endif %}
 </body>
 </html>
 
